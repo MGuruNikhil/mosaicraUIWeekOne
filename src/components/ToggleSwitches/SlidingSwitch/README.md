@@ -1,6 +1,6 @@
-# ExpandingSwitch
+# SlidingSwitch
 
-ExpandingSwitch is a toggle switch.
+SlidingSwitch is a toggle switch.
 
 It supports customization of four attributes
 
