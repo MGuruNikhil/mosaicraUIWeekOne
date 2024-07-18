@@ -7,7 +7,7 @@ function App() {
 
     return (
         <div className="flex items-center justify-center h-screen bg-black gap-4">
-            <CircularSpinner Size="lg" Thickness="lg" StrokeHex="#93bfec" CapShape="round" />
+            <CircularSpinner Width="60px" StrokeWidth="5" StrokeHex="#93bfec" CapShape="round" />
             <ExpandingSwitch Size="lg" OnBg="" OffBg="" Shape="" />
             <TriangleLoader Size="lg" Color="" Dot1Color="" Dot2Color="" Dot3Color="" />
             <SlidingSwitch Size="lg" OnBg="" OffBg="" SliderColor="" />

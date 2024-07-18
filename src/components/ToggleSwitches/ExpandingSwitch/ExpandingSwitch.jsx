@@ -23,9 +23,13 @@ const ExpandingSwitch = ({
 }) => {
     const [isOn, setIsOn] = useState(false);
 
+    const SliderBg = {
+        backgroundColor: isOn ? (!!OnBg ? OnBg : '#0EA5E9')   : (!!OffBg ? OffBg : '#6B7280'),
+    }
+
     return (
         <label className={`cursor-pointer label inline-flex items-center ${(Shape && Shapes[Shape]) || "rounded-[50px]"}`}>
-            <div className={`toggle isolate relative ${(Size && Sizes[Size]) || "h-[20px] w-[40px]"} ${(Shape && Shapes[Shape]) || "rounded-[50px]"} overflow-hidden ${isOn ? ((!!OnBg && 'bg-['+OnBg+']') || 'bg-[#0EA5E9]')   : ((!!OffBg && 'bg-['+OffBg+']') || 'bg-[#6B7280]')} transition-colors duration-[0.5s] ease-out delay-[0.25s]`}>
+            <div style = { SliderBg } className={`toggle isolate relative overflow-hidden ${(Size && Sizes[Size]) || "h-[20px] w-[40px]"} ${(Shape && Shapes[Shape]) || "rounded-[50px]"}  transition-colors duration-[0.5s] ease-out delay-[0.25s]`}>
                 <input 
                     className="toggle-state hidden" 
                     type="checkbox"

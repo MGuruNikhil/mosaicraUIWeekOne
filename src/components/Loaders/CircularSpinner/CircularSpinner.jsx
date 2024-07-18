@@ -1,49 +1,30 @@
 import React from 'react';
 
-const Sizes = {
-    "xs": "w-[20px] h-[20px]",
-    "sm": "w-[30px] h-[30px]",
-    "md": "w-[40px] h-[40px]",
-    "lg": "w-[50px] h-[50px]",
-    "xl": "w-[60px] h-[60px]",
-    "2xl": "w-[70px] h-[70px]",
-    "3xl": "w-[80px] h-[80px]",
-    "4xl": "w-[90px] h-[90px]"
-};
-
-const Thicknesses = {
-    "xs": "stroke-[1]",
-    "sm": "stroke-[2]",
-    "md": "stroke-[3]",
-    "lg": "stroke-[4]",
-    "xl": "stroke-[5]",
-    "2xl": "stroke-[6]",
-    "3xl": "stroke-[7]",
-    "4xl": "stroke-[8]"
-}
-
-const CapShapes = {
-    'round': 'round',
-    'square': 'square'
-}
-
 const CircularSpinner = ({
-    Size = "lg",
-    Thickness = "lg",
+    Width = "50px",
+    StrokeWidth = "4",
     StrokeHex = "#93bfec",
     CapShape = "round"
 }) => {
 
+    const CapShapes = ['round', 'square'];
+
     const CircleDefaultStyling = {
         stroke: StrokeHex || '#93bfec',
-        strokeLinecap: (CapShape && CapShapes[CapShape]) || 'round',
+        strokeWidth: StrokeWidth || '4',
+        strokeLinecap: ((CapShape && CapShapes.includes(CapShape)) && CapShape) || 'round',
         animation: 'dash 1.5s ease-in-out infinite'
+    }
+
+    const SpinnerStyling = {
+        width: Width || '50px',
+        height: Width || '50px'
     }
 
     return (
         <div className=''>
-            <svg className={`animate-spin z-10 ${(Size && Sizes[Size]) || "w-[50px] h-[50px]"}`} viewBox="0 0 50 50">
-                <circle className={`fill-none ${(Thickness && Thicknesses[Thickness]) || "stroke-[4]"}`}
+            <svg style={ SpinnerStyling } className={`animate-spin z-10`} viewBox="0 0 50 50">
+                <circle className={`fill-none`}
                     cx="25"
                     cy="25"
                     r="20"
@@ -71,4 +52,3 @@ const CircularSpinner = ({
 }
 
 export default CircularSpinner;
-
